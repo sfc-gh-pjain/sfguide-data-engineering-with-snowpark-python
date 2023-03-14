@@ -55,7 +55,7 @@ def get_snowsql_config(
     config_file_path: str = os.path.expanduser('~/.snowsql/config'),
 ) -> dict:
     import configparser
-
+    # print(config_file_path)
     snowsql_to_snowpark_config_mapping = {
         'account': 'account',
         'accountname': 'account',
@@ -69,7 +69,7 @@ def get_snowsql_config(
     try:
         config = configparser.ConfigParser(inline_comment_prefixes="#")
         connection_path = 'connections.' + connection_name
-
+        # print(connection_path)
         config.read(config_file_path)
         session_config = config[connection_path]
         # Convert snowsql connection variable names to snowcli ones
